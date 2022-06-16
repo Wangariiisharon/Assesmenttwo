@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class CalculateActivity : AppCompatActivity() {
     lateinit var tilNumberOne: TextInputLayout
     lateinit var tilNumberTwo: TextInputLayout
-    lateinit var etNumberOne: EditText
-    lateinit var etNumberTwo: EditText
+    lateinit var etNumberOne: TextInputEditText
+    lateinit var etNumberTwo: TextInputEditText
     lateinit var btnAdd: Button
     lateinit var btnSubtract: Button
     lateinit var btnModulus: Button
@@ -31,10 +32,6 @@ class CalculateActivity : AppCompatActivity() {
         btnModulus = findViewById(R.id.btnModulus)
         tvResult = findViewById(R.id.tvResult)
         btnCalculate=findViewById(R.id.btnCalculate)
-        btnCalculate.setOnClickListener {
-          validation()
-        }
-
 
 
         btnAdd.setOnClickListener {
@@ -67,6 +64,9 @@ class CalculateActivity : AppCompatActivity() {
             validation()
 
 
+        }
+        btnCalculate.setOnClickListener {
+            validation()
         }
 
 
@@ -109,7 +109,9 @@ class CalculateActivity : AppCompatActivity() {
         if (numberTwo.isBlank()) {
             tilNumberTwo.error = "Second number is required"
         }
-    }}
+    }
+}
+
 
 
 
